@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>DoseBuddy - OTP Login</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <script>
+    function showOTPField() {
+      document.getElementById("otpSection").style.display = "block";
+      document.getElementById("sendBtn").style.display = "none";
+    }
+  </script>
+</head>
+<body class="auth-page">
+  <div class="auth-box">
+    <h2>Login with Phone</h2>
+    <form method="POST" action="/verify">
+      <label for="phone">Phone Number</label>
+      <input type="text" name="phone" id="phone" required placeholder="Enter phone number" maxlength="10">
+
+      <div id="otpSection" style="display: none;">
+        <label for="otp">OTP</label>
+        <input type="text" name="otp" id="otp" required placeholder="Enter OTP" maxlength="6">
+        <button type="submit">Verify OTP</button>
+      </div>
+
+      <button type="button" id="sendBtn" onclick="showOTPField()">Send OTP</button>
+    </form>
+  </div>
+</body>
+</html>

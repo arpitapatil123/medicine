@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Add Medicine - DoseBuddy</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body class="add-medi">
+
+  <div class="medicine-wrapper">
+    <div class="medicine-form-box">
+      <h2>Add Medicine for Reminder</h2>
+
+      {% if success %}
+        <p class="success-msg">✅ <strong>{{ last_med }}</strong> saved successfully! Add another below:</p>
+      {% endif %}
+
+      <form method="POST" action="/save-medicine">
+        <input type="hidden" name="phone" value="{{ phone }}">
+
+        <label for="med_name">Medicine Name</label>
+        <input type="text" name="med_name" id="med_name" required placeholder="e.g. Paracetamol">
+
+        <label for="time">Reminder Time</label>
+        <input type="time" name="time" id="time" required>
+
+        <label for="start_date">Start Date</label>
+        <input type="date" name="start_date" id="start_date" value="{{ current_date }}" required>
+
+        <label for="end_date">End Date</label>
+        <input type="date" name="end_date" id="end_date" required>
+
+        <button type="submit">Save Reminder</button>
+      </form>
+    </div>
+  </div>
+
+</body>
+</html>

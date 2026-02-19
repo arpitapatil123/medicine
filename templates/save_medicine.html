@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Medicines Saved - DoseBuddy</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body class="save-page">
+
+  <div class="save-wrapper">
+    <div class="save-box">
+      <h2>✅ Reminder Saved for {{ name }}</h2>
+      <p>Phone Number: <strong>{{ phone }}</strong></p>
+
+      <h3>📝 Saved Medicines</h3>
+      <table class="medicine-table">
+        <thead>
+          <tr>
+            <th>Medicine</th>
+            <th>Time</th>
+            <th>Start Date</th>
+            <th>End Date</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for med in medicines %}
+          <tr>
+            <td>{{ med.name }}</td>
+            <td>{{ med.time }}</td>
+            <td>{{ med.start_date }}</td>
+            <td>{{ med.end_date }}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+
+      <div class="buttons">
+        <a href="{{ url_for('medi', phone=phone) }}"><button>Add Another Medicine</button></a>
+        <a href="/"><button class="done">Finish</button></a>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>

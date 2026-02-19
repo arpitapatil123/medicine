@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Medicine Saved</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+  <div class="medicine-confirm-box">
+    <h2>✅ Reminder Saved!</h2>
+    <p><strong>{{ med }}</strong> has been scheduled at <strong>{{ time }}</strong> for <strong>{{ name }}</strong>.</p>
+
+    <div class="confirm-buttons">
+      <a href="{{ url_for('add_medicine', phone=phone) }}"><button>Add Another Medicine</button></a>
+      <a href="/"><button class="done">Finish</button></a>
+    </div>
+  </div>
+
+</body>
+</html>

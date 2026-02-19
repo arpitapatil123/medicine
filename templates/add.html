@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DoseBuddy</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body class="add-page">
+    <header>
+    <div class="profile-icon">
+      <img src="{{ url_for('static', filename='profile.png') }}" alt="Profile" onclick="window.location.href='/auth'" />
+    </div>
+    </header>
+    <!-- Unique content wrapper for Add Patient page -->
+  <div class="add-patient-wrapper">
+    <div class="left-panel">
+      <h1>DoseBuddy</h1>
+      <p>Register a patient to start tracking their medications easily and reliably.</p>
+    </div>
+
+    <div class="right-panel">
+      <h2>Add Patient</h2>
+      <form method="POST" action="/save-patient" class="patient-form">
+        <label for="name">Patient Name</label>
+        <input type="text" id="name" name="name" required placeholder="e.g. Akshay Kadam">
+
+        <label for="phone">Reminder Phone Number</label>
+        <input type="text" id="phone" name="phone" required maxlength="10" placeholder="Phone number to receive reminders">
+
+        <button type="submit">Save & Add Medicine</button>
+        </form>
+
+    </div>
+  </div>
+
+</body>
+</html>
